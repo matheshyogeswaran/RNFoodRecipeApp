@@ -8,7 +8,7 @@ import { useNavigation } from '@react-navigation/native';
 import axios from 'axios';
 import Loading from '../components/Loading';
 import YoutubeIframe from 'react-native-youtube-iframe';
-
+import Animated, { FadeIn, FadeInDown, FadeOut } from 'react-native-reanimated';
 const RecipeDetailsScreen = (props) => {
     let item = props.route.params;
     const [isFavorite, setIsFavorite] = useState(false);
@@ -74,13 +74,14 @@ const RecipeDetailsScreen = (props) => {
                     source={{ uri: item.strMealThumb }}
                     style={{ width: wp(98), height: hp(50), borderRadius: 53, borderBottomLeftRadius: 40, borderBottomRightRadius: 40, marginTop: 30 }}
                     className="bg-black/5"
+                
                 />
 
             </View>
 
 
             {/* back button */}
-            <View className="w-full absolute flex-row justify-between items-center pt-14">
+            <Animated.View entering={FadeIn.delay(200).duration(1000)} className="w-full absolute flex-row justify-between items-center pt-14">
                 <TouchableOpacity onPress={() => { navigation.goBack() }} className="p-2 rounded-full ml-5 bg-white ">
                     <ChevronLeftIcon size={hp(3.5)} strokeWidth={4.5} color="#fbbf24" />
 
@@ -90,7 +91,7 @@ const RecipeDetailsScreen = (props) => {
 
                 </TouchableOpacity>
 
-            </View>
+            </Animated.View>
 
 
             {loading ? (
@@ -98,12 +99,12 @@ const RecipeDetailsScreen = (props) => {
             ) : (
                 meal && ( // Check if meal is defined
                     <View className="px-4 flex justify-between space-y-4 pt-8">
-                        <View className="space-y-2">
+                        <Animated.View entering={FadeInDown.duration(700).springify().damping(12)} className="space-y-2">
                             <Text style={{ fontSize: hp(3) }} className="font-bold flex-1 text-neutral-700">{meal.strMeal} </Text>
                             <Text style={{ fontSize: hp(3) }} className="font-medium flex-1 text-neutral-500">{meal.strArea} </Text>
-                        </View>
+                        </Animated.View>
 
-                        <View className="flex-row justify-around ">
+                        <Animated.View entering={FadeInDown.delay(100).duration(700).springify().damping(12)} className="flex-row justify-around ">
                             <View className="flex rounded-full bg-amber-300 p-2">
                                 <View
                                     style={{ height: hp(6.5), width: hp(6.5) }}
@@ -152,12 +153,12 @@ const RecipeDetailsScreen = (props) => {
                                     <Text style={{ fontSize: hp(1.3) }} className="font-bold text-netral-700">Easy</Text>
                                 </View>
                             </View>
-                        </View>
+                        </Animated.View>
 
 
 
                         {/* ingre */}
-                        <View className="space-y-4">
+                        <Animated.View entering={FadeInDown.delay(200).duration(700).springify().damping(12)} className="space-y-4">
                             <Text style={{ fontSize: hp(2.5) }} className="font-bold flex-1 text-neutral-700">
                                 Ingredients
 
@@ -178,10 +179,10 @@ const RecipeDetailsScreen = (props) => {
                                 })}
                             </View>
 
-                        </View>
+                        </Animated.View>
 
                         {/* instruc */}
-                        <View className="space-y-4">
+                        <Animated.View entering={FadeInDown.delay(300).duration(700).springify().damping(12)} className="space-y-4">
                             <Text style={{ fontSize: hp(2.5) }} className="font-bold flex-1 text-neutral-700">
                                 Instructions
                             </Text>
@@ -190,11 +191,11 @@ const RecipeDetailsScreen = (props) => {
                             </Text>
 
 
-                        </View>
+                        </Animated.View>
 
                         {
                             meal.strYoutube && (
-                                <View className="space-y-4">
+                                <Animated.View entering={FadeInDown.delay(400).duration(700).springify().damping(12)} className="space-y-4">
                                     <Text style={{ fontSize: hp(2.5) }} className="font-bold flex-1 text-neutral-700">
                                         Recipe Video
                                     </Text>
@@ -207,7 +208,7 @@ const RecipeDetailsScreen = (props) => {
                                         />
 
                                     </View>
-                                </View>
+                                </Animated.View>
 
                             )
                         }
