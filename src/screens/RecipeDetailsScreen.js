@@ -44,8 +44,8 @@ const RecipeDetailsScreen = (props) => {
     const getYoutubeVideoId = url => {
         const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
         const match = url.match(regExp);
-        if(match && match[1]){
-            return match[1];
+        if(match && match[2]){
+            return match[2];
         }
         return null;
     }
