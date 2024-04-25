@@ -2,7 +2,7 @@
   "expo": {
     "name": "RNFoodRecipeApp",
     "slug": "RNFoodRecipeApp",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
@@ -21,10 +21,16 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.sado.RNFoodRecipeApp"
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "74be8a0d-9e32-4567-8d56-f773e5acc780"
+      }
     }
   }
 }

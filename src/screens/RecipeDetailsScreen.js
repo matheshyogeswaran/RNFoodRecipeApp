@@ -98,7 +98,7 @@ const RecipeDetailsScreen = (props) => {
                 <Loading size="large" className="mt-16" />
             ) : (
                 meal && ( // Check if meal is defined
-                    <View className="px-4 flex justify-between space-y-4 pt-8">
+                    <View className="flex justify-between space-y-4 pt-8">
                         <Animated.View entering={FadeInDown.duration(700).springify().damping(12)} className="space-y-2">
                             <Text style={{ fontSize: hp(3) }} className="font-bold flex-1 text-neutral-700">{meal.strMeal} </Text>
                             <Text style={{ fontSize: hp(3) }} className="font-medium flex-1 text-neutral-500">{meal.strArea} </Text>

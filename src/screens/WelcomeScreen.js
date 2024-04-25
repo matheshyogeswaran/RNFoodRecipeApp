@@ -29,10 +29,10 @@ const WelcomeScreen = () => {
 
       <View className="flex items-center space-y-2">
         <Text className="font-bold text-white tracking-widest" style={{fontSize:hp(7)}}>
-          Foody
+        TasteMate
         </Text>
         <Text className="font-medium text-white tracking-widest"  style={{fontSize:hp(2)}}>
-          Food is always right
+        Blend the best recipes!
         </Text>
       </View>
 
